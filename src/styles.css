@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.product-title {
+    height: 50px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.cart-design {
+    padding: 35px 14px;
+    background-color: #e1e2e5 !important;
+    border-radius: 30px !important;
+}

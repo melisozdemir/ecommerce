@@ -1,0 +1,36 @@
+<!-- <li *ngIf="cartItems.length>0" class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Sepetiniz
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <li *ngFor="let cartItem of cartItems"><a
+         class="dropdown-item">
+         <span class="badge bg-secondary">{{cartItem.quantity}}</span>{{cartItem.product.title}}<span (click)="removeFromCart(cartItem.product)" class="badge bg-secondary">Sil</span></a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item">Sepete git</a></li>
+    </ul>
+  </li> -->
+
+<article class="text-gray-600 border border-gray-200 bg-white shadow-sm rounded cart-design" style="max-width: 360px">
+
+    <h2 class="text-lg font-semibold mb-3">Shopping Cart</h2>
+    <div *ngIf="cartItems.length==0">
+        <span class="bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">There is no product in the cart.</span>
+    </div>
+    <div *ngIf="cartItems.length>0">
+
+        <figure class="flex items-center mb-4 leading-5" *ngFor="let cartItem of cartItems">
+            <div>
+                <div class="block relative w-20 h-20 rounded p-1 border border-gray-200">
+                    <img width="70" height="70" src="{{ cartItem.product.image }}" alt="Title">
+                    <span class="absolute -top-2 -right-2 w-6 h-6 text-sm text-center flex items-center justify-center text-white bg-gray-400 rounded-full"> {{ cartItem.quantity }} </span>
+                </div>
+            </div>
+            <figcaption class="ml-3">
+                <p> {{ cartItem.product.title | uppercase}} <br> {{ cartItem.product.category }} </p>
+                <p class="mt-1 text-gray-400"> Total: {{ cartItem.product.price * cartItem.quantity | currency }} </p>
+                <span (click)="removeFromCart(cartItem.product)" class="badge bg-danger">Remove</span>
+            </figcaption>
+        </figure>
+    </div>
+</article>

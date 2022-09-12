@@ -1,0 +1,24 @@
+<!-- <ul class="list-group">
+    <li  [class]="getAllCategoryClass()" routerLink = "/products">Tüm Ürünler</li>
+    <li (click)="setCurrentCategory(category)"
+    routerLink = "/products/category/{{category}}"
+    *ngFor="let category of categories"
+    [class]="getCurrentCategoryClass(category)">
+    {{category}}</li>
+</ul> -->
+
+
+
+
+<a class="px-3 py-2 rounded-md hover:bg-gray-100" [class]="getAllCategoryClass()" routerLink = "/products">
+  All
+</a>
+<a class="px-3 py-2 rounded-md hover:bg-gray-100" (click)="setCurrentCategory(category)"
+routerLink = "/products/category/{{category}}"
+*ngFor="let category of categories"
+[class]="getCurrentCategoryClass(category)">
+{{category}}
+</a>
+
+
+<!-- <h5 *ngIf="currentCategory">{{currentCategory}} seçtiniz</h5> -->
